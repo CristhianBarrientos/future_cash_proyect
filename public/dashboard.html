@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/proy_FC/css/dashboard.css">
+
+    <!-- IMPORTACIONES DE ICONOS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- ============================================================================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="/proy_FC/servicios/dashboard.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <button id="buttom-open">☰</button>
+        <h1 class="name-logo" id="name-redirect" > Future Cash </h1>
+    </header>
+
+    <ul id="sidenav" class="side-nav">
+        <a href="#" id="buttom-close">×</a>
+        <li><a href="/proy_FC/public/blog/home.html" class="nav-link"><i class="fas fa-home"></i> Inicio </a></li>
+        <li><a href="/proy_FC/public/blog/presupuesto.html" class="nav-link"><i class="fas fa-fire"></i> Presupuesto </a></li>
+        <li><a href="/proy_FC/public/blog/graficas.html" class="nav-link"><i class="fas fa-pie-chart"></i> Graficas de Tendencia </a></li>
+        <li><a href="/proy_FC/public/blog/libreta.html" class="nav-link"><i class="fas fa-book"></i> Apuntes </a>
+        </li>
+        <li><a href="/proy_FC/public/blog/recomend.html" class="nav-link"><i class="fas fa-handshake-o"></i> Recomendacion </a>
+        </li>
+        <div class="btn-logout">
+            <hr class="divider">
+            <button type="submit" id="buttom-logout">
+                <i class="fas fa-power-off"></i>
+                <span class="cerrarsesion"> Cerrar Sesion</span>
+            </button>
+        </div>
+    </ul>
+    
+    
+    
+
+    <!-- Contenedor Principal -->
+    <main id="main">
+        <div id="content">
+            <h2> Apuntes: Dashboard , informacion de la pagina resumenes, redirecciones a informacion sobre la pagina , etc</h2>
+        </div>
+    </main>
+</body>
+
+</html>

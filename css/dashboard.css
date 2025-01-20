@@ -1,0 +1,229 @@
+* {
+
+    font-family: cursive;
+}
+
+/* General Styles */
+body,
+html {
+    height: 100%;
+    width: 100%;
+    /* font-family: Tahoma, Geneva, sans-serif; */
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    font-size: 1.1vw;
+
+
+}
+
+/* Línea divisoria */
+.divider {
+    width: 90%;
+    /* Ajusta el ancho de la línea */
+    margin: 0 auto 10px auto;
+    /* Centra la línea horizontalmente y agrega margen abajo */
+    border: none;
+    /* Elimina el borde por defecto */
+    border-top: 1.5px solid #ccc;
+    /* Línea superior */
+    box-shadow: 0px 4px 26px rgba(255, 255, 255, 0.806);
+
+}
+
+.divider:hover {
+    transform: scale(1.2);
+    box-shadow: 5px 5px 15px white;
+    transition: transform 0.2s ease;
+    
+
+}
+
+/*  este es el div que contiene el botón de logout */
+.btn-logout {
+    position: sticky;
+    bottom: 20px;
+    /* left: 50%; */
+    transform: translateX(10%) translateY(11vw);
+    width: 80%;
+    text-align: center;
+    text-align: start;
+    text-decoration: none;
+    /* height: 200px; */
+
+}
+
+/* Botón de Logout */
+#buttom-logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 95%;
+    height: 30px;
+    margin: 0 auto;
+    padding: 0px 0px 0px 10px;
+    font-size: 1.2vw;
+    background-color: #444;
+    color: #fff;
+    border: 1px solid #888;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+
+#buttom-logout:hover {
+    background-color: #555;
+    transform: scale(1.05);
+    /* Efecto de agrandamiento */
+    box-shadow: 0px 4px 26px rgba(255, 255, 255, 0.344);
+    /* Sombra */
+
+}
+.cerrarsesion{
+    margin: 10px;
+}
+
+
+
+/* Layout General */
+.layout {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background: linear-gradient(90deg, rgb(208, 208, 208) 0%, rgb(91, 91, 92) 35%, rgb(52, 52, 52) 100%);
+    transition: margin-left 0.5s;
+    padding: 16px;
+}
+
+/* Sidebar Styles */
+.side-nav {
+    height: 100%;
+    max-width: 200px;
+    width: 0px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: width 0.5s ease;
+    padding: 60px 0px 0px 0px;
+    /* padding-top: 60px; */
+}
+
+.side-nav a,
+.side-nav button {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1.3vw;
+    color: #818181;
+    display: block;
+    transition: color 0.3s ease;
+    text-align: start;
+}
+
+.side-nav a:hover {
+    color: #f1f1f1;
+}
+
+/* Logo en el Sidebar */
+.logo-principal {
+    width: 90px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+}
+
+/* Encabezado */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    color: #ffffff;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+header button:hover {
+    color: #ccc;
+}
+
+/* Contenedor Principal */
+main {
+    margin-left: 0;
+    padding: 20px;
+    transition: margin-left 0.5s ease;
+}
+
+/* Contenedor Dinámico */
+#content {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* font-size: 1.1vw; */
+}
+
+.name-logo {
+
+    /* background-image: ; */
+}
+
+
+/* coodigo para responsive del index */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #content {
+        padding: 15px;
+    }
+
+    .side-nav {
+        width: 0;
+        transform: translateX(-100%);
+    }
+
+    .side-nav a {
+        /* font-size: 18px; */
+        padding: 8px 12px;
+    }
+
+    .side-nav.open {
+        width: 75%;
+        transform: translateX(0);
+    }
+
+    .logo-principal {
+        width: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        margin-left: 0;
+    }
+}

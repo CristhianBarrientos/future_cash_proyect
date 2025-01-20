@@ -1,0 +1,29 @@
+body {
+    font-family: Tahoma, Geneva, sans-serif;
+}
+
+
+.font-example {
+    margin-bottom: 20px;
+}
+.arial {
+    font-family: Arial, sans-serif;
+}
+.times {
+    font-family: 'Times New Roman', Times, serif;
+}
+.courier {
+    font-family: 'Courier New', Courier, monospace;
+}
+.verdana {
+    font-family: Verdana, Geneva, sans-serif;
+}
+.georgia {
+    font-family: Georgia, serif;
+}
+.tahoma {
+    font-family: Tahoma, Geneva, sans-serif;
+}
+.comic {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
