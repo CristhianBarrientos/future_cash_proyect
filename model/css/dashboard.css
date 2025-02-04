@@ -9,12 +9,10 @@ html {
     height: 100%;
     width: 100%;
     /* font-family: Tahoma, Geneva, sans-serif; */
-    background-color: #ffffff;
+    background-color: rgba(123, 121, 121, 0.806);
     margin: 0;
     padding: 0;
     font-size: 1.1vw;
-
-
 }
 
 /* Línea divisoria */
@@ -77,8 +75,13 @@ html {
     /* Efecto de agrandamiento */
     box-shadow: 0px 4px 26px rgba(255, 255, 255, 0.344);
     /* Sombra */
-
 }
+
+#buttom-logout:active{
+color: rgba(255, 72, 72, 0.695);
+transform: scale(0.9);
+}
+
 .cerrarsesion{
     margin: 10px;
 }
@@ -122,13 +125,15 @@ html {
     text-align: start;
 }
 
-
-
 .side-nav a:hover {
     color: #f1f1f1;
     transform: scale(1.05);
 }
 
+.side-nav a:active{
+    color: #468cc5a8;
+    transform: scale(1.01);
+}
 
 /* Logo en el Sidebar */
 .logo-principal {

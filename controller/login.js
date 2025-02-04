@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const botonIngresar = document.getElementById('buttom-login');
+    const botonRegistrar = document.getElementById('buttom-signup');
 
     
     document.getElementById("show-signup").addEventListener("click", function (e) {
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         showConfirmButton: false,
                     });
                     setTimeout(() => {
-                        window.location.href = 'proy_FC/public/dashboard.html';
+                        window.location.href = 'proy_FC/view/public/dashboard.html';
                     }, 1500);
                 } else {
                     // alert(data.message || 'Credenciales inválidas');
@@ -78,7 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     showConfirmButton: false,
                 });
             }
-        } else {
+        }
+         else {
             Swal.fire({
                 title: "Campos incompletos...",
                 text: "LLena los campos antes de presionar sobre el boton ingresar!!",
@@ -89,9 +91,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    setTimeout(
-        function() { 
-            document.querySelector('.slogan-style').style.color = 'black'; 
-        }, 1000);
+    // botonRegistrar.addEventListener('click', async (e) => {
+    //     const frstnameusr = document.getElementById("frst-name-user").value;
+    //     const frstScndName = document.getElementById("frst-lstname-user").value;
+    //     const email = document.getElementById("email").value;
+    //     const usuario = document.getElementById("new-username").value;
+    //     const contrasena = document.getElementById("new-username","new-password").value;
+    //     const inputs = document.querySelectorAll('signup-form input');
+    //     const values = Array.from(inputs).map(input => input.value);
+
+
+    //     if(values){
+    //         Swal.fire({
+    //             title: "Capos llenos!!!!",
+    //             text: "Texto de pruebas... ",
+    //             icon: "success",
+    //             // timer: 2000,
+    //             showConfirmButton: true,
+    //         });
+    //         console.log(values);
+    //     }
+    //     else{
+    //         Swal.fire({
+    //             title: "Campos incompletos!!!!",
+    //             text: "Texto de pruebas... ",
+    //             icon: "warning",
+    //             // timer: 2000,
+    //             showConfirmButton: true,
+    //         });
+    //         console.log(values);
+    //     }
+
+
+    // });
+    // setTimeout(
+    //     function() { 
+    //         document.querySelector('.slogan-style').style.color = 'black'; 
+    //     }, 1000);
     
 });
