@@ -9,12 +9,10 @@ html {
     height: 100%;
     width: 100%;
     /* font-family: Tahoma, Geneva, sans-serif; */
-    background-color: #ffffff;
+    background-color: rgba(123, 121, 121, 0.806);
     margin: 0;
     padding: 0;
     font-size: 1.1vw;
-
-
 }
 
 /* Línea divisoria */
@@ -35,8 +33,6 @@ html {
     transform: scale(1.2);
     box-shadow: 5px 5px 15px white;
     transition: transform 0.2s ease;
-    
-
 }
 
 /*  este es el div que contiene el botón de logout */
@@ -44,8 +40,8 @@ html {
     position: sticky;
     bottom: 20px;
     /* left: 50%; */
-    transform: translateX(10%) translateY(11vw);
-    width: 80%;
+    /* transform: translateX(10%) translateY(11vw); */
+    width: 100%;
     text-align: center;
     text-align: start;
     text-decoration: none;
@@ -62,7 +58,7 @@ html {
     max-width: 95%;
     height: 30px;
     margin: 0 auto;
-    padding: 0px 0px 0px 10px;
+    padding: 0px 20px 0px 10px;
     font-size: 1.2vw;
     background-color: #444;
     color: #fff;
@@ -79,8 +75,13 @@ html {
     /* Efecto de agrandamiento */
     box-shadow: 0px 4px 26px rgba(255, 255, 255, 0.344);
     /* Sombra */
-
 }
+
+#buttom-logout:active{
+color: rgba(255, 72, 72, 0.695);
+transform: scale(0.9);
+}
+
 .cerrarsesion{
     margin: 10px;
 }
@@ -100,7 +101,7 @@ html {
 /* Sidebar Styles */
 .side-nav {
     height: 100%;
-    max-width: 200px;
+    max-width: 250px;
     width: 0px;
     position: fixed;
     z-index: 1;
@@ -115,7 +116,7 @@ html {
 
 .side-nav a,
 .side-nav button {
-    padding: 10px 15px;
+    padding: 5% 5%;
     text-decoration: none;
     font-size: 1.3vw;
     color: #818181;
@@ -126,6 +127,12 @@ html {
 
 .side-nav a:hover {
     color: #f1f1f1;
+    transform: scale(1.05);
+}
+
+.side-nav a:active{
+    color: #468cc5a8;
+    transform: scale(1.01);
 }
 
 /* Logo en el Sidebar */
@@ -184,6 +191,8 @@ main {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     /* font-size: 1.1vw; */
 }
+
+
 
 .name-logo {
 

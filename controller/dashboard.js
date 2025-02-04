@@ -31,9 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return openclose;
     }
 
-
-
-
     // function openNav() {
     //     document.getElementById("sidenav").style.width = "250px";
     //     document.getElementById("main").style.marginLeft = "250px";
@@ -43,10 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // }
 
 
+    // function activar(){
+    // prueba.classList.toggle('sideNav');
+    // }
 
     // // eventos para abrir/cerrar el sidebar
     document.getElementById("buttom-open").addEventListener('click', opencloseNav);
-    document.getElementById("buttom-close").addEventListener('click', closeNav);
+    // document.getElementById("buttom-close").addEventListener('click', closeNav);
+    // document.getElementById('sidenav').addEventListener('click',activar);
 
 
 
@@ -157,10 +158,12 @@ document.addEventListener('DOMContentLoaded', () => {
         logoutButton.addEventListener('click', logout);
     }
 
+    // esta funcion sirve para redirigir al dashboard cuando se presiona sobre el Logo 
     function redirect() {
-        window.location.href = '/proy_FC/public/dashboard.html';
-
+        window.location.href = '/proy_FC/view/public/dashboard.html';
     }
 
     document.getElementById("name-redirect").addEventListener('click', redirect);
+
+    
 });

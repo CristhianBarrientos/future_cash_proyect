@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Acrist</title>
+  <link rel="stylesheet" href="proy_FC/model/css/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="proy_FC/controller/login.js"></script>
+</head>
+
+<body>
+
+
+  <div class="container" style="width: 70vw; height: 80vh; visibility: visible; will-change: auto;">
+    <!-- Sección Izquierda -->
+    <div class="left-side">
+      <div class="left-side up">
+        <h2>SISTEMA ACRIST</h2>
+        <p>
+          "Presupuestos inteligentes para un futuro brillante"<br>
+          En future cash, nos preocupamos por tus finanzas y sabemos que solo necesitas un pequeño empujón.
+        </p>
+      </div>
+      <div class="left-side down">
+        <h2>BENEFICIOS</h2>
+        <ul>
+          <!-- <li>Control</li> -->
+          <li>Futuro</li>
+          <li>Finanzas</li>
+          <li>Inversión</li>
+          <li>Confianza</li>
+        </ul>
+      </div>
+    </div>
+
+    <!--=================================== LOGIN ==============================-->
+
+    <!-- Sección Derecha -->
+    <div class="right-side">
+      <div class="form-container login-form" id="login-form" style="
+        width: 100%;
+        height: 100%;
+        padding: 8% 5% 5% 5%;">
+        <h1>BIENVENIDO A Future CASH</h1>
+        <!-- <p>Ingresa los datos de tu perfil a continuación...</p> -->
+        <label for="user">Usuario:
+          <input type="text" id="user" placeholder="Escribe tu usuario" required />
+        </label>
+
+        <label for="password">Contraseña:
+          <input type="text" id="password" placeholder="Escribe tu contraseña" required />
+        </label>
+
+        <!-- <button>Ingresar</button> -->
+        <button type="submit" id="buttom-login">
+          <span data-test="text-content"> Ingresar</span>
+        </button>
+        <div class="links">
+          <span class="span-login">¿No cuentas con un usuario?</span>
+          <a href="#" id="show-signup">Registrarse</a>
+          <a href="/proy_FC/view/public/dashboard.html">Dashboard</a>
+        </div>
+      </div>
+
+      <!--=================================== SIGNUP ==============================-->
+
+      <div class="form-container signup-form" id="signup-form" style="
+      width: 100%;
+      height: 100%;
+      padding: 5% 5% 5% 5%;">
+        <div class="links">
+          <span class="span-signup"></span>
+          <a id="show-login" class="fa fa-angle-left"> Volver</a>
+          <!-- <i href="#" id="show-login" class="fa fa-arrow-left"></i> -->
+        </div>
+        <h1>crea tu cuenta aquí</h1>
+
+<!-- PRIMER NOMBRE -->
+        <label for="frst-name-user">Primer Nombre:</label>
+        <input type="text" id="frst-name-user" placeholder="Nombres del Usuario" required>
+<!-- SEGUNDO NOMBRE -->
+        <label for="scnd-name-user">Segundo Nombre:</label>
+        <input type="text" id="scnd-name-user" placeholder="Nombres del Usuario" required>
+<!-- PRIMER APELLIDO -->
+        <label for="frst-lstname-user">Primer Apellido:</label>
+        <input type="text" id="frst-lstname-user" placeholder="Apellidos del Usuario" required>
+<!-- SEGUNDO APELLIDO -->
+        <label for="scnd-lstname-user">Segundo Apellido:</label>
+        <input type="text" id="scnd-lstname-user" placeholder="Apellidos del Usuario" required>
+<!-- CORREO -->
+        <label for="email">Correo:</label>
+        <input type="email" id="email" placeholder="Ingresa tu correo" required>
+<!-- USUARIO -->
+        <label for="new-username">Usuario:</label>
+        <input type="text" id="new-username" placeholder="Crea tu usuario" required>
+<!-- CONTRASENIA -->
+        <label for="new-password">Contraseña:</label>
+        <input type="password" id="new-password" placeholder="Crea tu contraseña" required>
+<!-- BOTON DE INGRESO -->
+        <button type="submit" id="buttom-signup">
+          <span data-test="text-content">Registrar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
