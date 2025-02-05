@@ -17,7 +17,7 @@ body {
   min-height: 100vh;
   /* background-image: radial-gradient(ellipse, #05084d 40%, #000000 70%); */
   /* background-image: url('/proy_FC/public/imagenes/login_gifx.gif'); */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('/proy_FC/view/public/imagenes/login/imagen-humano3_recortada.jpeg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('/public/imagenes/login/imagen-humano3_recortada.jpeg');
   backdrop-filter: blur(15px);
   background-size: 100%;
   background-position: auto;
@@ -53,7 +53,7 @@ body {
   justify-content: space-around;
   align-items: center;
   padding: 10px;
-  background-image: linear-gradient(rgba(0, 0, 0, var(--opaco)), rgba(0, 0, 0, var(--opaco))), url('/proy_FC/view/public/imagenes/login/fc_3d.jpeg');
+  background-image: linear-gradient(rgba(0, 0, 0, var(--opaco)), rgba(0, 0, 0, var(--opaco))), url('/public/imagenes/login/fc_3d.jpeg');
   background-size: 90%;
 
 }
