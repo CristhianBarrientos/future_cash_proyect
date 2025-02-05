@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // esta funcion sirve para redirigir al dashboard cuando se presiona sobre el Logo 
     function redirect() {
-        window.location.href = '/proy_FC/view/public/dashboard.html';
+        window.location.href = '/src/views/dashboard.html';
     }
 
     document.getElementById("name-redirect").addEventListener('click', redirect);

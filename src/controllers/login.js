@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         showConfirmButton: false,
                     });
                     setTimeout(() => {
-                        window.location.href = 'proy_FC/view/public/dashboard.html';
+                        window.location.href = 'src/views/dashboard.html';
                     }, 1500);
                 } else {
                     // alert(data.message || 'Credenciales inválidas');
