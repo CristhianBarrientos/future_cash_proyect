@@ -235,14 +235,22 @@ body {
   /* font-family: 'Courier New', Courier, monospace; */
 }
 
-/* input:invalid{
-  border: 2px solid red;
-} */
+.right-side input.input-error{
+  border: 1.5px dotted red ;
+}
+
+.invalid2{
+  border: 2px solid rgb(0, 0, 0);
+}
 
 /* input:invalid::after{
   content: "Este campo es requerido!!";
   color: rgb(0, 106, 255);
 } */
+ .required{
+  color: red;
+  size: 1vh;
+ }
 
 .form-container.signup-form.input{
   width: 50%;

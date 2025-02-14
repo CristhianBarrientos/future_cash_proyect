@@ -77,26 +77,27 @@
         <h1>crea tu cuenta aquí</h1>
 
 <!-- PRIMER NOMBRE -->
-        <label for="frst-name-user">Primer Nombre:</label>
-        <input type="text" id="frst-name-user" placeholder="Nombres del Usuario" required>
+        <label for="frst-name-user">Primer Nombre: <span class="required frst-name"> * </span> </label>
+        <input type="text" id="frst-name-user" placeholder="Usuario Primer Nombre" required>
 <!-- SEGUNDO NOMBRE -->
-        <label for="scnd-name-user">Segundo Nombre:</label>
-        <input type="text" id="scnd-name-user" placeholder="Nombres del Usuario" required>
+        <label for="scnd-name-user">Segundo Nombre: <span class="required scnd-name"> * </span></label>
+        <input type="text" id="scnd-name-user" placeholder="Usuario Segundo Nombre" required>
 <!-- PRIMER APELLIDO -->
-        <label for="frst-lstname-user">Primer Apellido:</label>
-        <input type="text" id="frst-lstname-user" placeholder="Apellidos del Usuario" required>
+        <label for="frst-lstname-user">Primer Apellido: <span class="required lst-name">*</span> </label>
+        <input type="text" id="frst-lstname-user" placeholder="Usuario Primer Apellido" required>
 <!-- SEGUNDO APELLIDO -->
-        <label for="scnd-lstname-user">Segundo Apellido:</label>
-        <input type="text" id="scnd-lstname-user" placeholder="Apellidos del Usuario" required>
+        <label for="scnd-lstname-user">Segundo Apellido: <span class="required scnd-lst-name"> * </span></label>
+        <input type="text" id="scnd-lstname-user" placeholder="Usuario Segundo Apellido" required>
 <!-- CORREO -->
-        <label for="email">Correo:</label>
+        <label for="email">Correo: <span class="required email"> * </span> </label>
+        <span id="mensajeEmail" style="color:red"></span>
         <input type="email" id="email" placeholder="Ingresa tu correo" required>
 <!-- USUARIO -->
-        <label for="new-username">Usuario:</label>
-        <input type="text" id="new-username" placeholder="Crea tu usuario" required>
+        <label for="new-username">Usuario: <span class="required username"> * </span></label>
+        <input type="text" id="new-username" placeholder="Elige tu Usuario" required>
 <!-- CONTRASENIA -->
-        <label for="new-password">Contraseña:</label>
-        <input type="password" id="new-password" placeholder="Crea tu contraseña" required>
+        <label for="new-password">Contraseña: <span class="required psswrd"> * </span></label>
+        <input type="text" id="new-password" placeholder="Crea tu contraseña"  required>
 <!-- BOTON DE INGRESO -->
         <button type="submit" id="buttom-signup">
           <span data-test="text-content">Registrar</span>
