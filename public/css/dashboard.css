@@ -77,12 +77,12 @@ html {
     /* Sombra */
 }
 
-#buttom-logout:active{
-color: rgba(255, 72, 72, 0.695);
-transform: scale(0.9);
+#buttom-logout:active {
+    color: rgba(255, 72, 72, 0.695);
+    transform: scale(0.9);
 }
 
-.cerrarsesion{
+.cerrarsesion {
     margin: 10px;
 }
 
@@ -101,8 +101,8 @@ transform: scale(0.9);
 /* Sidebar Styles */
 .side-nav {
     height: 100%;
-    max-width: 250px;
-    width: 0px;
+    max-width: 45vh;
+    width: 45vh;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -130,7 +130,7 @@ transform: scale(0.9);
     transform: scale(1.05);
 }
 
-.side-nav a:active{
+.side-nav a:active {
     color: #468cc5a8;
     transform: scale(1.01);
 }
@@ -187,16 +187,41 @@ main {
     padding: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.519);
     /* font-size: 1.1vw; */
 }
 
 
-
 .name-logo {
-
+    cursor: pointer;
+    /* cursor: none; */
     /* background-image: ; */
+}
+
+
+@keyframes closeSideNav {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+}
+
+@keyframes openSideNav {
+    0% {
+        transform: translateX(-100%); /* Fuera de la pantalla */
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0); /* En su lugar */
+        opacity: 1;
+      }
+
 }
 
 
