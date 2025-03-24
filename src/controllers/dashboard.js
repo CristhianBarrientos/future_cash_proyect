@@ -1,35 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Función para abrir el sidebar
     var openclose = "cerrado";
+    document.getElementById("sidenav").style.transform = "translateX(-100%)";
+    
+    const userName = document.getElementById("user").value;
+    const lblNombreUsuario = document.getElementById("nombreUsuario");
+    lblNombreUsuario.textContent = userName;
 
     function opencloseNav() {
         if (openclose == "cerrado") {
 
-            document.getElementById("sidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
+            // document.getElementById("sidenav").style.width = "45vh";
+            document.getElementById("main").style.marginLeft = "45vh";
+            document.getElementById("sidenav").style.animation = "openSideNav 0.5s cubic-bezier(0.63, 0.99, 0.98, 0.90) normal forwards";
+            // document.getElementById("sidenav").style.animation = "none";
             openclose = "abierto";
-            console.log(openclose + "openNav");
-            // return openclose;
+            // console.log(openclose + "openNav");
+
 
         } else {
 
-            document.getElementById("sidenav").style.width = "0px";
+            // document.getElementById("sidenav").style.width = "0px";
             document.getElementById("main").style.marginLeft = "0px";
-            openclose = "cerrado";
-            console.log(openclose + "closeNav");
-            //     return openclose;        
+            document.getElementById("sidenav").style.animation = "closeSideNav 0.3s cubic-bezier(0.84, 0.61, 1, 1) forwards";
 
+            // document.getElementById("sidenav").style.filter = "blur(5px)";
+            openclose = "cerrado";
+            // console.log(openclose + "closeNav");
         }
     }
 
     // Función pa la barrita de al lado
-    function closeNav() {
-        document.getElementById("sidenav").style.width = "0px";
-        document.getElementById("main").style.marginLeft = "0px";
-        openclose = "cerrado";
-        console.log(openclose);
-        return openclose;
-    }
+    // function closeNav() {
+    //     document.getElementById("sidenav").style.width = "0px";
+    //     document.getElementById("main").style.marginLeft = "0px";
+    //     openclose = "cerrado";
+    //     console.log(openclose);
+    //     return openclose;
+    // }
 
     // function openNav() {
     //     document.getElementById("sidenav").style.width = "250px";
@@ -46,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // // eventos para abrir/cerrar el sidebar
     document.getElementById("buttom-open").addEventListener('click', opencloseNav);
-    // document.getElementById("buttom-close").addEventListener('click', closeNav);
+    //document.getElementById("buttom-close").addEventListener('click', closeNav);
     // document.getElementById('sidenav').addEventListener('click',activar);
 
 
@@ -160,7 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // esta funcion sirve para redirigir al dashboard cuando se presiona sobre el Logo 
     function redirect() {
-        window.location.href = '/src/views/dashboard.html';
+        // window.location.href = '/src/views/dashboard.html';
+        window.location.href = '/';
     }
 
     document.getElementById("name-redirect").addEventListener('click', redirect);
