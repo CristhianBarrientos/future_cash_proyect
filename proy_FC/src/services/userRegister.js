@@ -16,7 +16,7 @@ db.connect((err) => {
     console.error('Error en la conexión a base de datos: ', err.message);
     return;
   }
-  console.log("Conexión a bd correcta y estable");
+  console.log("(userRegister) Conexión a bd correcta y estable");
 });
 
 // Servicio para insertar usuarios nuevos a la base de datos

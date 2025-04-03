@@ -15,6 +15,23 @@ html {
     font-size: 1.1vw;
 }
 
+#toggleButton-SideNav {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+#sidebarIcon {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* .fade-out {
+    opacity: 0;
+} */
+
+
+
 /* Línea divisoria */
 .divider {
     width: 90%;
@@ -73,7 +90,7 @@ html {
     background-color: #555;
     transform: scale(1.05);
     /* Efecto de agrandamiento */
-    box-shadow: 0px 4px 26px rgba(255, 255, 255, 0.344);
+    box-shadow: 0px 2px 12px rgba(255, 255, 255, 0.344);
     /* Sombra */
 }
 
@@ -100,9 +117,9 @@ html {
 
 /* Sidebar Styles */
 .side-nav {
-    height: 100%;
-    max-width: 45vh;
-    width: 45vh;
+    height:100vh;
+    max-width: 20%;
+    width: 25vw;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -177,7 +194,7 @@ header button:hover {
 
 /* Contenedor Principal */
 main {
-    margin-left: 0;
+    /* margin-left: 30%; */
     padding: 20px;
     transition: margin-left 0.5s ease;
 }
@@ -189,9 +206,9 @@ main {
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.519);
+
     /* font-size: 1.1vw; */
 }
-
 
 .name-logo {
     cursor: pointer;
@@ -199,34 +216,166 @@ main {
     /* background-image: ; */
 }
 
+/* estilos para el panel de usuario */
+.user-panel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#nombreUsuario {
+    font-size: 1.2vw;
+    color: #fff;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5vw;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3 ease;
+}
+
+.dropdown-toggle:hover {
+    color: #ccc;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #262525;
+    min-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+    padding: 10px;
+    align-content: end;
+    overflow: hidden;
+    overflow-y: auto;
+    /* overflow-x: none; */
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu p#user-info {
+    margin: 0 0 10px 0;
+    color: #fff;
+    font-size: 1vw;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+    display: block;
+    padding: 10px 0px 10px 10px;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+    color: #fff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    border-radius: 10px;
+    width: 95%;
+    text-align: left;
+    font-size: 1vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #555;
+    transform: scale(1.05);
+    /* border-radius: 10px; */
+}
+
+.dropdown-menu a:active {
+    color: #468cc5a8;
+    transform: scale(1.00);
+}
+
+.dropdown-menu button#buttom-logout:active {
+    color: rgba(255, 72, 72, 0.695);
+}
 
 @keyframes closeSideNav {
     0% {
         transform: translateX(0);
         opacity: 1;
-      }
-      100% {
+    }
+
+    100% {
         transform: translateX(-100%);
         opacity: 0;
-      }
+    }
 
 }
 
 @keyframes openSideNav {
     0% {
-        transform: translateX(-100%); /* Fuera de la pantalla */
+        transform: translateX(-100%);
+        /* Fuera de la pantalla */
         opacity: 0;
-      }
-      100% {
-        transform: translateX(0); /* En su lugar */
+    }
+
+    100% {
+        transform: translateX(0);
+        /* En su lugar */
         opacity: 1;
-      }
+    }
+
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.75;
+    }
+    50% {
+        opacity: 0.50;
+    }
+    75% {
+        opacity: 0.25;
+    }
+    100% {
+        opacity: 0;
+    }
+
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 0.50;
+    }
+    75% {
+        opacity: 0.75;
+    }
+    100% {
+        opacity: 1;
+    }
 
 }
 
 
 /* coodigo para responsive del index */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     header {
         flex-direction: column;
         align-items: flex-start;
@@ -242,7 +391,7 @@ main {
     }
 
     .side-nav a {
-        /* font-size: 18px; */
+        /* font-size: 18px; 
         padding: 8px 12px;
     }
 
@@ -254,10 +403,26 @@ main {
     .logo-principal {
         width: 50px;
     }
-}
+} */
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     main {
         margin-left: 0;
+    }
+} */
+
+@media screen and (max-width: 768px) {
+    .user-panel {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .dropdown-menu {
+        min-width: 150px;
+    }
+
+    #nombreUsuario,
+    .dropdown-toggle {
+        font-size: 3vw;
     }
 }
