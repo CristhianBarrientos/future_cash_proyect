@@ -1,0 +1,75 @@
+Listado de rutas de carpetas
+El número de serie del volumen es 5EC0-0E6D
+C:.
+|   .gitignore
+|   estructura_carpeta2.0.txt
+|   estructura_carpetas.txt
+|   
++---public
+|   +---css
+|   |   |   dashboard.css
+|   |   |   graficas.css
+|   |   |   home.css
+|   |   |   libreta.css
+|   |   |   login.css
+|   |   |   presupuesto.css
+|   |   |   recomend.css
+|   |   |   
+|   |   \---estilosLogin
+|   |           codigo_pruebas.css
+|   |           
+|   \---imagenes
+|       |   censorship_15747195.gif
+|       |   cerrar-sesion.png
+|       |   eye_11614427.gif
+|       |   fondo_login.jpg
+|       |   login_gifx.gif
+|       |   login_gifx.mp4
+|       |   logo-code_cash.jpg
+|       |   neutral_11175761.gif
+|       |   neutral_7158904.gif
+|       |   right-side_login.gif
+|       |   sleeping-mask_17102564.gif
+|       |   
+|       +---dashboard
+|       |       energia.png
+|       |       home.png
+|       |       logout.png
+|       |       
+|       +---index
+|       \---login
+|               fc_3d.jpeg
+|               fc_elegant.jpeg
+|               fc_futureCas.png
+|               fc_imagen-humano.jpeg
+|               fc_wild.jpeg
+|               imagen-humano2.jpg
+|               imagen-humano3.jpeg
+|               imagen-humano3_recortada.jpeg
+|               
+\---src
+    |   server.js
+    |   
+    +---controllers
+    |       dashboard.js
+    |       graficas.js
+    |       home.js
+    |       login.js
+    |       
+    +---models
+    +---services
+    |       userRegister.js
+    |       userValidate.js
+    |       
+    \---views
+        |   dashboard.html
+        |   index.html
+        |   login.html
+        |   
+        \---blog
+                graficas.html
+                home.html
+                libreta.html
+                presupuesto.html
+                recomend.html
+                

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/public/css/dashboard.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- IMPORTACIONES DE ICONOS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- ============================================================================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/src/controllers/dashboard.js" defer></script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <button id="toggleButton-SideNav"><i id="side-nav-icon" class="bx bx-menu"></i></button>
+        <h1 class="name-logo" id="name-redirect"> Future Cash </h1>
+        <!-- Nuevo contenedor para el panel del usuario -->
+        <div class="user-panel">
+            <span id="nombreUsuario">user</span>
+            <div class="dropdown" id="user-dropdown">
+                <button class="dropdown-toggle" id="user-menu-toggle">
+                    <i class="fas fa-user-circle"></i> <!-- Ícono de usuario -->
+                </button>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <p id="user-info">Cargando...</p>
+                    <p id="email-info">Cargando...</p> <!-- Información del usuario -->
+                    <a href="/src/views/blog/settings.html" class="nav-link" id="config-link">
+                        <i class="fa-solid fa-sliders"></i> Configuraciones</a>
+                    <a href="/src/views/blog/updateInfo.html" class="nav-link" id="update-info">
+                        <i class="fa-solid fa-pen"></i> Actualizar Información </a>
+                    <hr class="divider">
+                    <button id="buttom-logout">Cerrar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <ul id="sidenav" class="side-nav">
+        <!-- <a href="#" id="buttom-close">×</a>   -->
+        <li><a href="/src/views/blog/home.html" class="nav-link"><i class="fas fa-home"></i> Inicio </a></li>
+        <li><a href="/src/views/blog/presupuesto.html" class="nav-link"><i class="fas fa-fire"></i> Presupuesto </a>
+        </li>
+        <li><a href="/src/views/blog/graficas.html" class="nav-link"><i class="fas fa-pie-chart"></i> Graficas de
+                Tendencia </a></li>
+        <li><a href="/src/views/blog/libreta.html" class="nav-link"><i class="fas fa-book"></i> Apuntes </a></li>
+        <li><a href="/src/views/blog/recomend.html" class="nav-link"><i class="fas fa-handshake-o"></i> Recomendacion
+            </a></li>
+        <!-- <div class="btn-logout">
+            <hr class="divider">
+            <button type="submit" id="buttom-logout">
+                <i class="fas fa-power-off"></i>
+                <span class="cerrarsesion"> Cerrar Sesion</span>
+            </button>
+        </div> -->
+    </ul>
+
+
+    <!-- Contenedor Principal -->
+    <main id="main">
+        <div id="content">
+            <h2> Apuntes: Dashboard , informacion de la pagina resumenes, redirecciones a informacion sobre la pagina ,
+                etc</h2>
+        </div>
+    </main>
+</body>
+<script>
+
+</script>
+
+</html>

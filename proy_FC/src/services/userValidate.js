@@ -16,7 +16,7 @@ db.connect((err) => {
     console.error('Error en la conexión a la base de datos:', err.message);
     return;
   }
-  console.log('La conexón a BD fue exitosa y se encuentra estable...');
+  console.log("(userValidate) Conexión a bd correcta y estable");
 });
 
 // Ruta para validar el inicio de sesión de usuarios

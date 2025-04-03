@@ -1,0 +1,9 @@
+
+
+.list {
+    list-style-type: none;
+}
+
+.update-info {
+    display:grid;
+}

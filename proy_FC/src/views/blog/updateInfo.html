@@ -1,0 +1,37 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizacion de Informacion</title>
+
+    <link rel="stylesheet" href="/public/css/updateInfo.css">
+
+</head>
+
+<body>
+    <div class="title">
+        <h1>Actualiza tu Informacion</h1>
+    </div>
+    <div class="update-info" id="updateInfo">
+        <form action="/updateUserInfo" method="post">
+            <ul class="list user-info" id="userInfo">
+                <li> <label for="">Nombres: <input class="update-usrname" type="text"> </label> </li>
+                <li> <label for="">Apellidos: <input class="update-usrname" type="text"> </label> </li>
+                <li> <label for="">Actual Contraseña: <input class="old-password" id="old-password" type="password"> </label> </li>
+                <li> <label for="">Nueva Contraseña: <input class="new-password" id="new-password" type="password"> </label> </li>
+            </ul>
+
+            <ul class="list update-group" id="updateGroup">
+                <li> <label for="">Nombres: <input class="update-usrname" type="text"> </label> </li>
+                <li> <label for="">Apellidos: <input class="update-usrname" type="text"> </label> </li>
+                <li> <label for="">Actual Contraseña: <input class="old-password" id="old-password" type="password"> </label> </li>
+                <li> <label for="">Nueva Contraseña: <input class="new-password" id="new-password" type="password"> </label> </li>
+
+            </ul>
+
+        </form>
+    </div>
+</body>
+
+</html>

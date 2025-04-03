@@ -1,63 +1,86 @@
+// const e = require("express");
+
 document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.getElementById('user-menu-toggle');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    const opencloseNav = document.getElementById("toggleButton-SideNav");
+    const toggleIcon = document.getElementById('side-nav-icon');
     // Función para abrir el sidebar
     var openclose = "cerrado";
     document.getElementById("sidenav").style.transform = "translateX(-100%)";
-    
-    const userName = document.getElementById("user").value;
-    const lblNombreUsuario = document.getElementById("nombreUsuario");
-    lblNombreUsuario.textContent = userName;
 
-    function opencloseNav() {
-        if (openclose == "cerrado") {
+    // funcion que sirve para jalar la informacion del usuario
+    async function fetchUserInfo() {
+        try {
+            // se simula el local storage
+            const username = localStorage.getItem('username') || 'user';
+            const response = await fetch('http://localhost:1000/api/usuarios/info', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ usuario: username })
+            });
+            const data = await response.json();
+            if (response.ok) {
+                document.getElementById('nombreUsuario').textContent = data.usuario.toLowerCase()
+                    .split(" ")
+                    .map(userCamel => userCamel.charAt(0).toUpperCase() + userCamel.slice(1))
+                    .join(" ");
 
-            // document.getElementById("sidenav").style.width = "45vh";
-            document.getElementById("main").style.marginLeft = "45vh";
-            document.getElementById("sidenav").style.animation = "openSideNav 0.5s cubic-bezier(0.63, 0.99, 0.98, 0.90) normal forwards";
-            // document.getElementById("sidenav").style.animation = "none";
-            openclose = "abierto";
-            // console.log(openclose + "openNav");
-
-
-        } else {
-
-            // document.getElementById("sidenav").style.width = "0px";
-            document.getElementById("main").style.marginLeft = "0px";
-            document.getElementById("sidenav").style.animation = "closeSideNav 0.3s cubic-bezier(0.84, 0.61, 1, 1) forwards";
-
-            // document.getElementById("sidenav").style.filter = "blur(5px)";
-            openclose = "cerrado";
-            // console.log(openclose + "closeNav");
+                document.getElementById('user-info').textContent = `Usuario:  \n${data.usuario} `;
+                document.getElementById('email-info').textContent = `Email: ${data.email}`
+            } else {
+                document.getElementById('user-info').textContent = '(400) Error al cargar datos';
+            }
+        } catch (error) {
+            console.error('Error fetching user info:', error);
+            document.getElementById('user-info').textContent = '(404) No se pudo cargar la info';
         }
     }
 
-    // Función pa la barrita de al lado
-    // function closeNav() {
-    //     document.getElementById("sidenav").style.width = "0px";
-    //     document.getElementById("main").style.marginLeft = "0px";
-    //     openclose = "cerrado";
-    //     console.log(openclose);
-    //     return openclose;
-    // }
-
-    // function openNav() {
-    //     document.getElementById("sidenav").style.width = "250px";
-    //     document.getElementById("main").style.marginLeft = "250px";
-    //     openclose = "abierto";
-    //     console.log(openclose + "openNav");
-    //     return openclose;
-    // }
+    fetchUserInfo();
 
 
-    // function activar(){
-    // prueba.classList.toggle('sideNav');
-    // }
+    toggleButton.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!toggleButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove('show');
+        }
+    })
+
+    // funcion que se utiliza para abrir y cerrar la barra lateral
+    opencloseNav.addEventListener('click', () => {
+        // toggleIcon.classList.add('fade-out');
+        toggleIcon.style.animation = "fade-in 1s ease";
+
+        setTimeout(() => {
+            if (openclose === "cerrado") {
+
+                document.getElementById("main").style.marginLeft = "20vw";
+                document.getElementById("sidenav").style.animation = "openSideNav 0.5s cubic-bezier(0.63, 0.99, 0.98, 0.90) normal forwards";
+                document.getElementById("side-nav-icon").classList.remove("bx-menu");
+                document.getElementById("side-nav-icon").classList.add("bx-menu-alt-right");
+                openclose = "abierto";
+
+            } else {
+
+                document.getElementById("main").style.marginLeft = "0px";
+                document.getElementById("sidenav").style.animation = "closeSideNav 0.3s cubic-bezier(0.84, 0.61, 1, 1) forwards";
+                document.getElementById("side-nav-icon").classList.remove("bx-menu-alt-right");
+                document.getElementById("side-nav-icon").classList.add("bx-menu");
+                openclose = "cerrado";
+            }
+            // toggleIcon.classList.remove('fade-out');
+            toggleIcon.style.animation = "fade-in 1s ease";
+
+        }, 100);
+
+    });
 
     // // eventos para abrir/cerrar el sidebar
-    document.getElementById("buttom-open").addEventListener('click', opencloseNav);
-    //document.getElementById("buttom-close").addEventListener('click', closeNav);
-    // document.getElementById('sidenav').addEventListener('click',activar);
-
-
+    // document.getElementById("toggleButton-SideNav").addEventListener('click', opencloseNav);
 
     // Función para cargar contenido dinámico
     document.querySelectorAll('.nav-link').forEach(link => {
@@ -71,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch(url);
                 if (!response.ok) throw new Error('Error al cargar el contenido');
                 const data = await response.text();
-                content.innerHTML = data; // Actualizar contenido 
+                content.innerHTML = data; // Actualizar contenido
 
                 // Si el contenido cargado incluye un canvas para Chart.js, inicializa la gráfica
                 if (url.includes('graficas.html')) {
@@ -145,12 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 timer: 1500,
                 showConfirmButton: false,
             });
-
-            // Eliminar datos de autenticación
-            localStorage.removeItem('authToken'); // Limpia el token de autenticación
-            // sessionStorage.clear(); // CUANDO HAYA SESSION ID
-            // document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; // CUANDO TENGA TOKEN DE AUTH
-
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('username ');
             // SE REDIRIGE A LA RUTA POR DEFECTO
             setTimeout(() => {
                 window.location.href = '/';
@@ -159,20 +178,22 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('El usuario canceló el cierre de sesión.');
         }
     }
+    document.getElementById('buttom-logout').addEventListener('click', logout);
 
-    // SE VINCULA
-    const logoutButton = document.getElementById('buttom-logout');
-    if (logoutButton) {
-        logoutButton.addEventListener('click', logout);
-    }
-
-    // esta funcion sirve para redirigir al dashboard cuando se presiona sobre el Logo 
-    function redirect() {
-        // window.location.href = '/src/views/dashboard.html';
+    document.getElementById("name-redirect").addEventListener('click', () => {
         window.location.href = '/';
-    }
+    })
 
-    document.getElementById("name-redirect").addEventListener('click', redirect);
 
-    
+    // document.getElementById('buttom-logout' ).addEventListener('click', logout);
+
+    // // esta funcion sirve para redirigir al dashboard cuando se presiona sobre el Logo
+    // function redirect() {
+    //     // window.location.href = '/src/views/dashboard.html';
+    //     window.location.href = '/';
+    // }
+
+    // document.getElementById("name-redirect").addEventListener('click', redirect);
+
+
 });

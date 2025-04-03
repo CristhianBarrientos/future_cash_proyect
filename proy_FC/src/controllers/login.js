@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             timer: 1500,
                             showConfirmButton: false,
                         });
+                        localStorage.setItem('username', userLog.toLowerCase() );
                         setTimeout(() => {
                             window.location.href = 'src/views/dashboard.html';
                         }, 1500);
@@ -142,6 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         timer: 1800,
                         showConfirmButton: false,
                     });
+                    localStorage.setItem('new-username', username.toLowerCase() );
                     setTimeout(() => {
                         window.location.href = '/src/views/dashboard.html'
                     }, 1800);
@@ -435,4 +437,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 0);
         }
     });
+
+    if (response.ok) {
+        Swal.fire({
+            title: "Bienvenido " + userLog,
+            text: "Credenciales correctas...",
+            icon: "success",
+            timer: 1500,
+            showConfirmButton: false,
+        });
+        localStorage.setItem('username', userLog.toLowerCase()); 
+        setTimeout(() => {
+            window.location.href = 'src/views/dashboard.html';
+        }, 1500);
+    }
 });
