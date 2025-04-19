@@ -31,7 +31,7 @@ body {
   height: 500px; */
   scale: unset;
   display: flex;
-  background: #f4f4f4;
+  background: #ffffff;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
   border: 2px solid rgba(0, 0, 0, 0.885);
   border-radius: 10px;
@@ -128,9 +128,9 @@ body {
   overflow-y: auto;
   /* animation: identifier 4s infinite; */
 }
-/* .right-side::-webkit-scrollbar-track{
+.right-side::-webkit-scrollbar-track{
   background-color: rgb(247, 2, 2);
-} */
+}
 
 @keyframes identifier {
   0%{
@@ -239,10 +239,6 @@ body {
   border: 2px solid rgb(0, 0, 0);
 }
 
-/* input:invalid::after{
-  content: "Este campo es requerido!!";
-  color: rgb(0, 106, 255);
-} */
  .required{
   color: red;
   size: 1vh;
@@ -261,7 +257,7 @@ body {
   content: "🔗";
 }
 
-.right-side input:focus {
+.right-side input:focus:not([id="Male"]):not([id="Female"]) {
   outline: none;
   /* linea para quitar el borde por defecto que aparece al clickear en un input */
   box-shadow: 2px 4px 7px rgba(0, 0, 0, 0.9);
@@ -278,9 +274,70 @@ body {
 .right-side input::placeholder {
   color: #afafaf76;
   text-shadow: none;
-  font-size: 2.5vh;
+  font-size: 2.5vh;                
 }
 
+.form-container.signup-form input[type="date"] {
+  display: block;
+}
+
+.gender-options {
+  margin: 1.3vw 0px;
+}
+
+.gender-options input[type="radio"] {
+  display: none;  /*Oculta el input */
+}
+
+.gender-options input[type="radio"] + label {
+  position: relative;
+  padding-left: 2em;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 1.5em;
+  font-weight: bold;
+  color: #aaa;
+  line-height: 2em;
+}
+
+.gender-options input[type="radio"] + label:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%; /* círculo */
+  background: #fff;
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+}
+
+.gender-options input[type="radio"]:checked + label:before {
+  border-color: #042d30;
+}
+
+.gender-options input[type="radio"]:checked + label:after {
+    content: "";
+    width: 9px;
+    height: 6px;
+    border: 4px solid #0a4d51;
+    float: left;
+    margin-left: -5.2vh;
+    border-right: 0;
+    border-top: 0;
+    margin-top: 2vh;
+    transform: rotate(-55deg);
+}
+
+.gender-group.input-error > label {
+  color: rgb(0, 0, 0);
+}
+
+.gender-group.input-error > label::after {
+  color: red;
+  font-size: 1vw;
+  content: 'Selecciona tu genero...';
+}
 
 .right-side button {
   width: 100%;

@@ -1,9 +1,220 @@
-
-
+/* Estilos generales para las listas */
 .list {
     list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-.update-info {
-    display:grid;
+.container {
+    max-width: 80vw;
+    margin: 0 auto;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 15px rgba(177, 177, 177, 0.372);
 }
+
+
+
+#userInfo li {
+    flex: 1 1 45%; 
+    padding: 10px;
+}
+
+#userInfo label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+}
+
+#userInfo input[disabled] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #97979777;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* Estilos para los campos editables */
+#updateGroup, 
+#oldInfoGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Espacio entre los elementos */
+    margin-bottom: 20px;
+}
+
+#updateGroup li,
+#oldInfoGroup li {
+    flex: 1 1 45%; /*esto hace que ocupe el 45% de la ventana, basicamente es lo que hace que se ordene uno detras de otro :D  */
+    padding: 10px;
+}
+
+#updateGroup label,
+#oldInfoGroup label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+}
+
+#updateGroup input[type="text"],
+#updateGroup input[type="email"],
+#updateGroup input[type="password"],
+#oldInfoGroup input[type="text"],
+#oldInfoGroup input[type="email"],
+#oldInfoGroup input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* Hover y focus para los campos editables */
+#updateGroup input[type="text"]:hover,
+#updateGroup input[type="email"]:hover,
+#updateGroup input[type="password"]:hover,
+#oldInfoGroup input[type="text"]:hover,
+#oldInfoGroup input[type="email"]:hover,
+#oldInfoGroup input[type="password"]:hover {
+    /* border-color: #8d8d8d;
+    outline: none; */
+    background-color: #c3c3c341;
+    border-radius: 15px;
+}
+
+#updateGroup input[type="text"]:focus,
+#updateGroup input[type="email"]:focus,
+#updateGroup input[type="password"]:focus,
+#oldInfoGroup input[type="text"]:focus,
+#oldInfoGroup input[type="email"]:focus,
+#oldInfoGroup input[type="password"]:focus  {
+    outline: none;
+    /* linea para quitar el borde por defecto que aparece al clickear en un input */
+    box-shadow: 2px 4px 7px rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
+}
+
+.title {
+    text-align: center;
+    margin: 50px 0;
+}
+/* Estilos para títulos */
+.title-infoActual, .titleNewInfo {
+    text-align: center;
+    margin: 15px 0px;
+}
+
+.title h1, .title-infoActual h2, .titleNewInfo{
+    color: #333;
+    font-size: 1.5em;
+}
+
+/* Estilo para el botón */
+#updateButton {
+    width: 100%;
+    max-width: 20vw;
+    box-sizing: border-box;
+    padding: 2.5vh;
+    margin: 2vh auto 5vh auto;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1.2vw;
+    font-weight: bold;
+    display: block;
+}
+
+#updateButton:hover {
+    background: #333;
+}
+
+/* Si la resolución es mayor a 1920px, dividir en 3 columnas */
+@media (min-width: 1921px) {
+    #updateGroup li, #oldInfoGroup li {
+        flex: 1 1 calc(33.33% - 16px);
+    }
+}
+
+/* Si la resolución es aún mayor, dividir en 4 columnas */
+@media (min-width: 2560px) {
+    #updateGroup li, #oldInfoGroup li {
+        flex: 1 1 calc(25% - 16px);
+    }
+}
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+
+    #updateGroup li,
+    #oldInfoGroup li {
+        flex: 1 1 100%; /* En pantallas medianas, pasa a una columna */
+        padding: 8px;
+    }
+
+    #updateGroup input[type="text"],
+    #updateGroup input[type="email"],
+    #updateGroup input[type="password"],
+    #oldInfoGroup input[type="text"],
+    #oldInfoGroup input[type="email"],
+    #oldInfoGroup input[type="password"] {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    #updateButton {
+        font-size: 2.5vw;
+    }
+}
+
+@media (max-width: 480px) {
+    
+    #updateGroup li, 
+    #oldInfoGroup li {
+        flex: 1 1 100%; /* En pantallas pequeñas, sigue en una columna */
+        padding: 6px;
+    }
+
+    #updateGroup input[type="text"],
+    #updateGroup input[type="email"],
+    #updateGroup input[type="password"],
+    #oldInfoGroup input[type="text"],
+    #oldInfoGroup input[type="email"],
+    #oldInfoGroup input[type="password"] {
+        padding: 6px;
+        font-size: 0.85em;
+    }
+
+    #updateButton {
+        font-size: 3vw;
+    }
+}
+
+
+
+/* pantallas grandes */
+/* @media (min-width: 1025px) {
+    #userInfo li,
+    #updateGroup li {
+        flex: 1 1 20%; 
+        padding: 6px;
+    }
+
+    #userInfo input[disabled],
+    #updateGroup input[type="text"],
+    #updateGroup input[type="email"],
+    #updateGroup input[type="password"] {
+        padding: 6px;
+        font-size: 0.85em;
+    }
+
+    #updateButton {
+        font-size: 1.5vw;
+    }
+
+} */
