@@ -16,5 +16,4 @@ db.connect((err) => {
 
   router.put('updateInfo', (req, res) => {
     
-
   });

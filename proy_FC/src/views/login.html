@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Acrist</title>
   <link rel="stylesheet" href="/public/css/login.css">
+  <script src="/src/controllers/login.js" defer></script>
+  <script src="/proy_FC/src/controllers/dashboard.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Agregar las dependencias de GSAP necesarias para las animaciones -->
   <script src="https://unpkg.com/gsap@3.11.0/dist/gsap.min.js"></script>
   <script src="https://assets.codepen.io/16327/ScrambleTextPlugin3.min.js"></script>
   <script src="https://assets.codepen.io/16327/MorphSVGPlugin3.min.js"></script>
-  <script src="/src/controllers/login.js" defer></script>
-  <script src="/proy_FC/src/controllers/dashboard.js" defer></script>
 </head>
 
 <body>
@@ -48,7 +48,7 @@
         padding: 8% 5% 5% 5%;">
         <h1>BIENVENIDO A Future CASH</h1>
         <!-- <p>Ingresa los datos de tu perfil a continuación...</p> -->
-        <label for="user" >Usuario: <span class="required user">*</span>
+        <label for="user">Usuario: <span class="required user">*</span>
           <input type="text" id="user" placeholder="Escribe tu usuario" required />
         </label>
 
@@ -94,39 +94,57 @@
 
       <!--=================================== SIGNUP ==============================-->
 
-      <div class="form-container signup-form" id="signup-form" style="
-      width: 100%;
-      height: 100%;
-      padding: 5% 5% 5% 5%;">
+      <div class="form-container signup-form" id="signup-form" style="width: 100%; height: 100%; padding: 5% 5% 5% 5%;">
         <div class="links">
           <span class="span-signup"></span>
           <a id="show-login" class="fa fa-angle-left"> Volver</a>
         </div>
-        <h1>crea tu cuenta aquí</h1>
+        <h1>Crea tu cuenta aquí</h1>
 
         <!-- PRIMER NOMBRE -->
-        <label for="frst-name-user">Primer Nombre: <span class="required frst-name"> * </span> </label>
+        <label for="frst-name-user">Primer Nombre: <span class="required frst-name">*</span></label>
         <input type="text" id="frst-name-user" placeholder="Ingresa tu Primer Nombre" required>
+
         <!-- SEGUNDO NOMBRE -->
-        <label for="scnd-name-user">Segundo Nombre: <span class="required scnd-name"> * </span></label>
+        <label for="scnd-name-user">Segundo Nombre: <span class="required scnd-name">*</span></label>
         <input type="text" id="scnd-name-user" placeholder="Ingresa tu Segundo Nombre" required>
+
         <!-- PRIMER APELLIDO -->
-        <label for="frst-lstname-user">Primer Apellido: <span class="required lst-name">*</span> </label>
+        <label for="frst-lstname-user">Primer Apellido: <span class="required lst-name">*</span></label>
         <input type="text" id="frst-lstname-user" placeholder="Ingresa tu Primer Apellido" required>
+
         <!-- SEGUNDO APELLIDO -->
-        <label for="scnd-lstname-user">Segundo Apellido: <span class="required scnd-lst-name"> * </span></label>
+        <label for="scnd-lstname-user">Segundo Apellido: <span class="required scnd-lst-name">*</span></label>
         <input type="text" id="scnd-lstname-user" placeholder="Ingresa tu Segundo Apellido" required>
+
+        <!-- FECHA DE NACIMIENTO -->
+        <label for="birthday-users">Fecha de Nacimiento: <span class="required" id="mensajeBirthday">*</span></label>
+        <input type="date" id="birthday-users" required>
+
         <!-- CORREO -->
-        <label for="email">Correo: <span class="required email"> * </span> </label>
+        <label for="email">Correo: <span class="required email">*</span></label>
         <span id="mensajeEmail" style="color:red"></span>
         <input type="email" id="email" placeholder="Ingresa tu correo" required>
+
+        <!-- GÉNERO -->
+        <div class="gender-group" id="genderGroup">
+          <label for="genre">Género: <span class="required genre">*</span></label>
+          <div class="gender-options">
+              <input type="radio" id="male" name="genre" value="M" checked >
+              <label for="male">Hombre</label>
+              <input type="radio" id="female" name="genre" value="F" >
+              <label for="female">Mujer</label>
+          </div>
+        </div>
+
         <!-- USUARIO -->
-        <label for="new-username">Usuario: <span class="required username"> * </span></label>
-        <input type="text" id="new-username" placeholder="Elige tu Usuario" title="Elige el tu nombre de usuario" required>
+        <label for="new-username">Usuario: <span class="required username">*</span></label>
+        <input type="text" id="new-username" placeholder="Elige tu Usuario" title="Elige tu nombre de usuario" required>
+
         <!-- CONTRASEÑA -->
-        <label for="new-password">Contraseña: <span class="required psswrd"> * </span>
-          <input type="password" id="new-password" placeholder="Crea tu contraseña" required>
-        </label>
+        <label for="new-password">Contraseña: <span class="required psswrd">*</span></label>
+        <input type="password" id="new-password" placeholder="Crea tu contraseña" required>
+
         <!-- BOTÓN DE INGRESO -->
         <button type="submit" id="buttom-signup">
           <span data-test="text-content">Registrar</span>

@@ -12,12 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // funcion que sirve para jalar la informacion del usuario
     async function fetchUserInfo() {
         try {
-            // se simula el local storage
+            // se simula el local storagex
             const username = localStorage.getItem('username') || 'user';
+            const newUsername = localStorage.getItem('new-username');
             const response = await fetch('http://localhost:1000/api/usuarios/info', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ usuario: username })
+                headers: { 
+                    'Content-Type': 'application/json'
+                 },
+                body: JSON.stringify({ 
+                    usuario: username!= "" ? newUsername : username
+                 })
             });
             const data = await response.json();
             if (response.ok) {
@@ -38,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     fetchUserInfo();
-
 
     toggleButton.addEventListener('click', () => {
         dropdownMenu.classList.toggle('show');
@@ -183,17 +187,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("name-redirect").addEventListener('click', () => {
         window.location.href = '/';
     })
-
-
-    // document.getElementById('buttom-logout' ).addEventListener('click', logout);
-
-    // // esta funcion sirve para redirigir al dashboard cuando se presiona sobre el Logo
-    // function redirect() {
-    //     // window.location.href = '/src/views/dashboard.html';
-    //     window.location.href = '/';
-    // }
-
-    // document.getElementById("name-redirect").addEventListener('click', redirect);
-
 
 });

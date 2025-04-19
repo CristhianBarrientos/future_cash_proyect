@@ -26,12 +26,6 @@ html {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* .fade-out {
-    opacity: 0;
-} */
-
-
-
 /* Línea divisoria */
 .divider {
     width: 90%;
@@ -73,10 +67,11 @@ html {
     align-items: center;
     width: 100%;
     max-width: 95%;
-    height: 30px;
+    height: 2vw;
     margin: 0 auto;
-    padding: 0px 20px 0px 10px;
-    font-size: 1.2vw;
+    /* padding: 0px 20px 0px 10px; */
+    padding: 2.5vh;
+    font-size: 1vw;
     background-color: #444;
     color: #fff;
     border: 1px solid #888;
@@ -425,4 +420,5 @@ main {
     .dropdown-toggle {
         font-size: 3vw;
     }
+    
 }
