@@ -17,3 +17,5 @@ db.connect((err) => {
   router.put('updateInfo', (req, res) => {
     
   });
+
+  module.exports = router;

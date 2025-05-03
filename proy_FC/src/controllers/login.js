@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // esto para estandarizar el codigo y acostumbrarme a la sintaxis 
     const setupFormNavigation = () => {
         document.getElementById("show-signup").addEventListener("click", function (e) {
-            e.preventDefault();
+            // e.preventDefault();
             clearElements();
             document.getElementById("login-form").classList.add("hidden");
             document.getElementById("signup-form").classList.add("show");
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         document.getElementById("show-login").addEventListener("click", function (e) {
-            e.preventDefault();
+            //e.preventDefault();
             clearElements();
             document.getElementById("signup-form").classList.remove("show");
             document.getElementById("login-form").classList.remove("hidden");
@@ -135,88 +135,113 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     };
 
-    const setupLoginButton = () => {
-        botonIngresar.addEventListener('click', async (e) => {
-            e.preventDefault();
-            try {
-                const userLog = document.getElementById('user').value;
-                const passwordLog = document.getElementById('password').value;
+        
+    const login = async () => {
+        const userLog = document.getElementById('user').value.trim();
+        const passwordLog = document.getElementById('password').value.trim();
+        try {
 
-                if ((userLog !== "" || passwordLog !== "")) {
-                    console.log(userLog, passwordLog);
-                    try {
-                        const response = await fetch('http://localhost:1000/api/usuarios/login', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                                usuario: userLog.toLowerCase(),
-                                contrasena: passwordLog.toLowerCase()
-                            }),
-                        });
 
-                        const data = await response.json();
+            if ((userLog !== "" || passwordLog !== "")) {
+                // console.log(userLog, passwordLog);
+                try {
+                    const response = await fetch('http://localhost:1000/api/usuarios/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            usuario: userLog.toLowerCase(),
+                            contrasena: passwordLog.toLowerCase()
+                        }),
+                    });
 
-                        if (response.ok) {
-                            Swal.fire({
-                                title: "Bienvenido " + userLog,
-                                text: "Credenciales correctas...",
-                                icon: "success",
-                                timer: 1500,
-                                showConfirmButton: false,
-                            });
-                            localStorage.setItem('username', userLog.toLowerCase());
-                            setTimeout(() => {
-                                window.location.href = 'src/views/dashboard.html';
-                            }, 1500);
-                        } else {
-                            Swal.fire({
-                                title: "Los datos no coinciden.",
-                                text: "El usuario no existe o se encuentra inactivo...",
-                                icon: "error",
-                                timer: 1500,
-                                showConfirmButton: false,
-                            });
-                        }
-                    } catch (error) {
-                        console.error('Error al realizar la solicitud:', error);
+                    const data = await response.json();
+
+                    if (response.ok) {
                         Swal.fire({
-                            title: "Hubo un inconveniente",
-                            text: "No se pudo conectar con el servidor 1 (" + error + ")",
+                            title: "Bienvenido " + userLog,
+                            text: "Credenciales correctas...",
+                            icon: "success",
+                            timer: 1500,
+                            showConfirmButton: false,
+                        });
+                        localStorage.setItem('username', userLog.toLowerCase());
+                        // console.log(localStorage.setItem('username2', data.usuario));
+                        setTimeout(() => {
+                            window.location.href = 'src/views/dashboard.html';
+                        }, 1500);
+                    } else {
+                        Swal.fire({
+                            title: "Los datos no coinciden.",
+                            text: "El usuario no existe o se encuentra inactivo...",
                             icon: "error",
+                            timer: 1500,
                             showConfirmButton: false,
                         });
                     }
-                } else {
+                } catch (error) {
+                    console.error('Error al realizar la solicitud:', error);
                     Swal.fire({
-                        title: "Campos incompletos...",
-                        text: "LLena los campos antes de presionar sobre el boton ingresar!!",
-                        icon: "info",
-                        showConfirmButton: true,
+                        title: "Hubo un inconveniente",
+                        text: "No se pudo conectar con el servidor 1 (" + error + ")",
+                        icon: "error",
+                        showConfirmButton: false,
                     });
                 }
-            } catch (Error) {
-                alert(Error);
+            } else {
+                Swal.fire({
+                    title: "Campos incompletos...",
+                    text: "LLena los campos antes de presionar sobre el boton ingresar!!",
+                    icon: "info",
+                    showConfirmButton: true,
+                });
             }
+        } catch (Error) {
+            alert(Error);
+        };
+        
+    }
+
+    const setupLoginButton = () => {
+        botonIngresar.addEventListener('click', async (event) => {
+            await login();
         });
     };
 
+    const setupLoginInputs = () => {
+        const usuario = document.getElementById('user');
+        const password = document.getElementById('password');
+
+        usuario.addEventListener('keydown', async (event) => {
+            if (event.key === 'Enter'){
+                await login();
+            }
+        });
+
+        password.addEventListener('keydown', async (event) => {
+            if (event.key === 'Enter') {
+                await login();
+            }
+        });
+
+    }
+
     const setupRegistrationButton = () => {
         botonRegistrar.addEventListener('click', async (e) => {
-            e.preventDefault();
+            // e.preventDefault();
 
-            const firstName = document.getElementById("frst-name-user").value;
-            const secondName = document.getElementById("scnd-name-user").value;
-            const frstLastName = document.getElementById("frst-lstname-user").value;
-            const scndLastName = document.getElementById("scnd-lstname-user").value;
-            const age = document.getElementById("birthday-users").value;
-            const email = document.getElementById("email").value;
-            const genre = document.querySelector('input[name="genre"]:checked')?.value;
-            const username = document.getElementById("new-username").value;
-            const password = document.getElementById("new-password").value;
+            const firstName = document.getElementById("frst-name-user").value.trim();
+            const secondName = document.getElementById("scnd-name-user").value.trim();
+            const frstLastName = document.getElementById("frst-lstname-user").value.trim();
+            const scndLastName = document.getElementById("scnd-lstname-user").value.trim();
+            const age = document.getElementById("birthday-users").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const genre = document.querySelector('input[name="genre"]:checked')?.value.trim();
+            const username = document.getElementById("new-username").value.trim();
+            const password = document.getElementById("new-password").value.trim();
 
-            console.log('Datos a enviar:', { firstName, secondName, frstLastName, scndLastName, age, email, genre, username, password });
+            // console.log('Datos a enviar:', { firstName, secondName, frstLastName, scndLastName, age, email, genre, username, password });
 
             const emailPatron = /^[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]{2,}([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}$/;
             const condicion = emailPatron.test(email);
@@ -277,6 +302,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
+
+    // funciones para ofuscar la contrasenia del nuevo usuario
+    var flag = 1;
+
+    const setupPasswordToggleSignup = () => {
+        document.getElementById("spanPassword").addEventListener("click", function (e) {
+            const inputPassword = document.getElementById("new-password");
+            const imgSpan = document.getElementById("imgForSpan");
+
+            if (flag === 1) {
+                imgSpan.src = "/public/imagenes/sleeping-mask_17102564.gif"
+                flag = 0;
+            } else {
+                imgSpan.src = "/public/imagenes/eye_11614427.gif"
+                flag = 1;
+            }
+
+            inputPassword.type = inputPassword.type === "password" ? "text" : "password";
+
+        });
+    };
+
 
     // funcion para el ojo movible
     const setupPasswordToggle = () => {
@@ -457,9 +504,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setupFormNavigation();
         setupEmailValidation();
         setupLoginButton();
+        setupLoginInputs();
         setupRegistrationButton();
         setupPasswordToggle();
         setupFormValidation();
+        setupPasswordToggleSignup();
     };
 
     // Inicia el aplicativo 

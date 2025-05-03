@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const newUsername = localStorage.getItem('new-username');
             const response = await fetch('http://localhost:1000/api/usuarios/info', {
                 method: 'POST',
-                headers: { 
+                headers: {
                     'Content-Type': 'application/json'
-                 },
-                body: JSON.stringify({ 
-                    usuario: username!= "" ? newUsername : username
-                 })
+                },
+                body: JSON.stringify({
+                    usuario: newUsername || username
+                })
             });
             const data = await response.json();
             if (response.ok) {
@@ -83,9 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
-    // // eventos para abrir/cerrar el sidebar
-    // document.getElementById("toggleButton-SideNav").addEventListener('click', opencloseNav);
-
     // Función para cargar contenido dinámico
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', async function (event) {
@@ -99,6 +96,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!response.ok) throw new Error('Error al cargar el contenido');
                 const data = await response.text();
                 content.innerHTML = data; // Actualizar contenido
+
+                // integracion de los datos , para updateInfo.html, inicializando el formulario en este momento, ya que se carga en este punto
+                if (url.includes('updateInfo.html')) {
+                    if (typeof window.currentInfo === 'function') {
+                        window.currentInfo();
+                    } else {
+                        console.error('pestania no encontrada');
+                    }
+                }
 
                 // Si el contenido cargado incluye un canvas para Chart.js, inicializa la gráfica
                 if (url.includes('graficas.html')) {
@@ -173,7 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 showConfirmButton: false,
             });
             localStorage.removeItem('authToken');
-            localStorage.removeItem('username ');
+            localStorage.removeItem('username');
+            localStorage.removeItem('new-username');
             // SE REDIRIGE A LA RUTA POR DEFECTO
             setTimeout(() => {
                 window.location.href = '/';
