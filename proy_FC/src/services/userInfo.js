@@ -16,7 +16,7 @@ db.connect((err) => {
 
 router.post('/info', (req, res) => {
     const { usuario } = req.body;
-    const query = 'SELECT u.usuario, p.email FROM usuarios u INNER JOIN personas p ON u.persona_id = p.id WHERE u.usuario = ? AND u.estado = "activo"';
+    const query = 'SELECT CONCAT(p.primer_nombre, " ", p.segundo_nombre) nombres, CONCAT(p.primer_apellido, " ", p.segundo_apellido) apellidos, u.usuario, p.email FROM usuarios u INNER JOIN personas p ON u.persona_id = p.id WHERE u.usuario = ? AND u.estado = "activo"';
     db.query(query, [usuario], (err, results) => {
         if (err) return res.status(500).json({ message: 'Error en el servidor', err });
         if (results.length > 0) {

@@ -399,8 +399,6 @@ body {
   text-decoration: underline;
 }
 
-
-
 .form-group {
   position: relative;
 }
@@ -433,6 +431,20 @@ body {
  background-color: transparent;
 }
 
+#imgForSpan {
+  width: 30px;
+  height: 30px;
+}
+
+#spanPassword, #imgForSpan {
+  position: absolute; 
+  transform: translateY(-50%); 
+  transform: translateX(16vw) translateY(-1.9vw);
+  cursor: pointer;
+  place-items: center;
+
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -451,7 +463,7 @@ body {
     display: none;
 }
 
-/* Opcional: aplicar ofuscación personalizada solo al input de contraseña del login */
+
 #login-form input[type="password"] {
     -webkit-text-security: disc !important;
 }

@@ -19,20 +19,20 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/src/controllers/dashboard.js" defer></script>
+    <script src="/src/controllers/updateInfo.js" defer></script>
 
 </head>
 
 <body>
 
     <header>
-
         <button id="toggleButton-SideNav"><i id="side-nav-icon" class="bx bx-menu"></i></button>
         <h1 class="name-logo" id="name-redirect"> Future Cash </h1>
         <!-- Nuevo contenedor para el panel del usuario -->
         <div class="user-panel">
-            <span id="nombreUsuario">user</span>
+            <span id="nombreUsuario">Cargando...</span>
             <div class="dropdown" id="user-dropdown">
-                <button class="dropdown-toggle" id="user-menu-toggle">
+                <button class="dropdown-toggle" id="user-menu-toggle"> <!-- dropdown para mostrar la informacion del usuario-->
                     <i class="fas fa-user-circle"></i> <!-- Ícono de usuario -->
                 </button>
                 <div class="dropdown-menu" id="dropdown-menu">

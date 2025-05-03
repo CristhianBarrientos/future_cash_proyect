@@ -34,8 +34,16 @@
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 1em;
+    /* font-weight: bold; */
 }
 
+#oldInfoGroup input[type="text"],
+#oldInfoGroup input[type="email"],
+#oldInfoGroup input[type="password"] {
+    font-weight: bold;
+    /* user-select: none; */
+
+}
 /* Estilos para los campos editables */
 #updateGroup, 
 #oldInfoGroup {
